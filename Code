@@ -1,0 +1,213 @@
+/**************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+***************************/
+import java.util.*;
+public class Main
+{
+    /* A Program For Car Rental Reservations */
+    String name;
+    String surname;
+    String email;
+    int age;
+    String b;
+    int passengers;
+    int days;
+    String pickup;
+    String drop;
+    long ph_no;
+    double distance;
+    double fare;
+    double total;
+    String date;
+    String time;
+    String cap="";
+    char ch;
+    int n;
+    Scanner sc=new Scanner(System.in);
+    void input()//to Accept the Required details from the User
+    {
+        System.out.println("                             CCCCCCCCC   TTTTTTTTTTT       AAA        TTTTTTTTTTT ");
+        System.out.println("                             C                T           A   A            T      ");
+        System.out.println("                             C                T          A     A           T      ");
+        System.out.println("                             C                T         A       A          T      ");
+        System.out.println("                             C                T         AAAAAAAAA          T      ");
+        System.out.println("                             C                T       A           A        T      ");
+        System.out.println("                             C                T      A             A       T      ");
+        System.out.println("                             CCCCCCCCC        T     A               A      T      ");
+        System.out.println("                           WELCOME TO COMFORT TOURS AND TRAVELS India PVT.LTD.");
+        System.out.println("                                   ...YOUR COMFORT IS OUR PLEASURE...");
+        System.out.println("                                                                                  ");
+        System.out.println("Enter the First Name Of the customer (For example:Jones)");
+        name=sc.next();
+        System.out.println("Enter the Surname of the customer (For example:Anderson)");
+        surname=sc.next();
+        System.out.println("Please enter your age (Age Should be Greater than 12 Years)");
+        age=sc.nextInt();
+        System.out.println("Enter Your Phone Number");
+        ph_no=sc.nextLong();
+        System.out.println("Please enter Your e-mail id (For example:joneswayne@gmail.com)");
+        email=sc.next();
+        System.out.println("Enter The Perfect Pickup Location(Within India)");
+        pickup=sc.next();
+        System.out.println("Enter the Perfect Drop Location (Within India)");
+        drop=sc.next();
+        System.out.println("Enter the Distance Between the Two Locations(In Kilometres)");
+        distance=sc.nextDouble();
+        System.out.println("Enter the Date On Which You Want To Book The Vehicle (For example:29.04.2018)");
+        date=sc.next();
+        System.out.println("Enter the No.of Days For Which You Require Our Vehicle Services (For Example:1)");
+        days=sc.nextInt();
+        System.out.println("Enter the Time On Which You Want To Book The Vehicle (For example: 5:00pm)");
+        time=sc.next();
+    }//End of the function accept
+    void calculate_fare()//To Calculate The Fare Charged With Respect To The Distance Travelled
+    {
+        if(distance<=1)
+            fare=distance*18;
+        else if(distance>1&&distance<=5)
+            fare=1*18+(distance-1)*25;
+        else if(distance>5&&distance<=10)
+            fare=1*18+5*25+(distance-5)*30;
+        else if(distance>10&&distance<=100)
+            fare=1*18+5*25+10*30+(distance-10)*40;
+        else if(distance>100&&distance<=1000)
+            fare=1*18+5*25+10*30+100*40+(distance-100)*100;
+    }//end of the function calculate_fare
+    void model_booking()//To Decide Which Type of Car Should Be Booked Based on the number of passengers
+    {
+        System.out.println("We Send You The Vehicle Based on the number of Passengers going to travel");
+        System.out.println("Enter the number Of the Passengers Travelling With You");
+        passengers=sc.nextInt();
+        if(passengers<=4)
+            System.out.println("You Will Recieve A Hatchback Car Which Can Accomodate 4 Passengers");
+        else if(passengers>4&&passengers<=8)
+            System.out.println("You Will Recieve A S.U.V Car Which Can Accomodate 8 Passengers");
+        else if(passengers>8&&passengers<=20)
+            System.out.println("You Will Recieve An A.C. Mini-Bus Which Can Accomodate 20 Passengers");
+        else if(passengers>20&&passengers<=60)
+            System.out.println("You Will Recieve An Executive Sleeper Coach A.C. Bus");
+        else if(passengers>60&&passengers<=120)
+            System.out.println("You Will Recieve 2 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>120&&passengers<=180)
+            System.out.println("You Will Recieve 3 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>180&&passengers<=240)
+            System.out.println("You Will Recieve 4 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>240&&passengers<=300)
+            System.out.println("You Will Recieve 5 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>300&&passengers<=360)
+            System.out.println("You Will Recieve 6 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>360&&passengers<=420)
+            System.out.println("You Will Recieve 7 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>420&&passengers<=480)
+            System.out.println("You Will Recieve 8 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>480&&passengers<=540)
+            System.out.println("You Will Recieve 9 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>540&&passengers<=600)
+            System.out.println("You Will Recieve 10 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>600)
+            System.out.println("You will have to book A Customised Vehicle Service by coming to our office");
+        total=fare*passengers*days;
+    }//end of the function model_booking
+    void captcha_generation_and_bill_printing()
+    {
+        boolean OTPflag;
+        for(int i=0;i<=5;i++)
+        {
+            if(i==0||i==2||i==4)
+                n=(int)(Math.random()*((122-97)+1)+97);
+            else
+                n=(int)(Math.random()*((57-48)+1)+48);
+            ch=(char)n;
+            cap=cap+Character.toString(ch) ;
+        }
+        System.out.println("LOADING....Please Wait a Minute....Thank You....");
+        System.out.println("You have been Now Redirected to our Automatic Bill-Generation Server");
+        System.out.println("We Will Now Send You A Re-captcha OTP TO Confirm & Verify This Booking");
+        System.out.println("THANK YOU FOR WAITING...Your OTP is: "+cap);
+        do
+        {
+            OTPflag=true;
+            System.out.println("Please Enter the Re-captcha OTP You Have Recieved");
+            b=sc.next();
+            if(b.equals(cap)==false)
+            {
+                System.out.println("Your Re-captcha OTP is invalid!!");
+                OTPflag=false;
+            }
+        }while(OTPflag==false);
+
+        System.out.println("Congratulations....Your Booking Was Successful");
+        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.println("                                INVOICE                                                 ");
+        System.out.println("                                                                                       ");
+        System.out.println("  Name Of the Customer:"+name+" "+surname                                               );
+        System.out.println("  Age of the Customer:"+age                                                             );
+        System.out.println("  Customer Phone Number:"+ph_no                                                         );
+        System.out.println("  Customer e-mail id:"+email                                                            );
+        System.out.println("  Note: A Copy Of This Invoice Is Sent To Your Registered E-Mail id:"+email             );
+        System.out.println("  Number Of Passengers:"+passengers                                                     );
+        if(passengers<=4)
+            System.out.println("  You Will Recieve A Hatchback Car Which Can Accomodate 4 Passengers");
+        else if(passengers>4&&passengers<=8)
+            System.out.println("  You Will Recieve A S.U.V Car Which Can Accomodate 8 Passengers");
+        else if(passengers>8&&passengers<=20)
+            System.out.println("  You Will Recieve An A.C. Mini-Bus Which Can Accomodate 20 Passengers");
+        else if(passengers>20&&passengers<=60)
+            System.out.println("  You Will Recieve An Executive Sleeper Coach A.C. Bus");
+        else if(passengers>60&&passengers<=120)
+            System.out.println("  You Will Recieve 2 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>120&&passengers<=180)
+            System.out.println("  You Will Recieve 3 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>180&&passengers<=240)
+            System.out.println("  You Will Recieve 4 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>240&&passengers<=300)
+            System.out.println("  You Will Recieve 5 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>300&&passengers<=360)
+            System.out.println("  You Will Recieve 6 Executive Sleeper Coach A.C. Buses");
+        else if(passengers>360&&passengers<=420)
+            System.out.println("  You Will Recieve 7 Executive Sleeper Coach A.C. Buses"                              );
+        else if(passengers>420&&passengers<=480)
+            System.out.println("  You Will Recieve 8 Executive Sleeper Coach A.C. Buses"                              );
+        else if(passengers>480&&passengers<=540)
+            System.out.println("  You Will Recieve 9 Executive Sleeper Coach A.C. Buses"                              );
+        else if(passengers>540&&passengers<=600)
+            System.out.println("  You Will Recieve 10 Executive Sleeper Coach A.C. Buses"                             );
+        else if(passengers>600)
+            System.out.println("You will have to book A Customised Vehicle Service by coming to our office");
+        System.out.println("  Note:Driver detils will be informed to you an hour prior To the time of the journey"  );
+        System.out.println("  All our vehicles are equipped with min. 4 Star Rated Drivers "                          );
+        System.out.println("  Pick-up Location:"+pickup                                                             );
+        System.out.println("  Drop Location:"+drop                                                                  );
+        System.out.println("  Distance Between The Two Locations:"+distance+"km"                                    );
+        System.out.println("  Scheduled Date Of The Journey:"+date                                                  );
+        System.out.println("  No of Days for which the booking is made:" +days                                      );
+        System.out.println("  Scheduled Time Of The Jouney:"+time                                                   );
+        System.out.println("  The Charge To Be paid PER PERSON:"+fare                                               );
+        System.out.println("  THE TOTAL AMOUNT TO BE PAID:"+total                                                   );
+        System.out.println("  This Amount is to be paid to the driver or in our Office"                             );
+        System.out.println("  We Do Not Charge Extra On The Basis of Traffic Or Weather Conditions"                 );
+        System.out.println("  You can pay the bill using your credit card,cash,paytm and cheque"                    );
+        System.out.println("  Note: A Hard Copy of this bill will be provided at the time of paying the bill"       );
+        System.out.println("  Cheques to be drawn in favour of:COMFORT TOURS AND TRAVELS SERVICES MUMBAI PVT.LTD"   );
+        System.out.println("                   THANK YOU!!!!HAVE A SAFE JOURNEY"                                    );
+        System.out.println("Address:Comfort Tours And Travels,Narain Chambers,Ground Foor,Bandra(West),Mumbai-400051");
+        System.out.println("-------------------------------------------------------------------------------------------");
+        System.out.println("For Any Complaints,Suggestions,Feedback,call us on our 24X7 helpline:+91 9372583629");
+    }
+    //end of the function print_bill
+    public static void main(String args[])
+    {
+
+        Main ob=new Main();
+        ob.input();
+        ob.calculate_fare();
+        ob.model_booking();
+        ob.captcha_generation_and_bill_printing();
+    }
+
+}
